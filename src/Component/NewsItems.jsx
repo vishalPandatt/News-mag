@@ -1,5 +1,4 @@
 
-
 const NewsItems = () => {
   return (
     <div>
