@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 import NewsItems from "./NewsItems";
 
 
-const NewsBord = () => {
+const NewsBord = ({ category = "general" }) => {
 
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_API_KEY}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`;
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setArticles(data.articles))
+      .then((data) => setArticles(data.articles || []))
       .catch((err) => console.error("Failed to fetch articles:", err));
-  }, []);
+  }, [category]);
 
   return (
     <div>
