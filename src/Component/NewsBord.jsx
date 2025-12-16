@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NewsItems from "./NewsItems";
 
 
-const NewsBord = ({ category = "general" }) => {
+const NewsBord = ({ category}) => {
 
   const [articles, setArticles] = useState([]);
 
